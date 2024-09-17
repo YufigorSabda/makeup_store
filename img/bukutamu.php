@@ -1,0 +1,172 @@
+<!-- Panggil file koneksi, karena kita membutuhkan nya -->
+<?php
+  include "koneksi.php"
+?>
+<html>
+<head>
+<!-- INI BAGIAN JUDUL DAN ICON WEB -->
+<title>YUNANDA.MAKEUP</title>
+<link rel="icon" type="image/png" href="logo.jpg" /> 
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<!-- INI BAGIAN BACKGROUND WEB -->
+<body body background="background.png" ><br>
+
+<!-- MULAI MEMBUAT FRAME / LAYOUT DESAIN WEB -->
+<table width="1024" border="0" align="center" bgcolor="#8B0000">
+
+<!-- INI BAGIAN HEADER -->
+<tr>
+<td colspan="2"> <img src="benner.png" alt="Image" height="250" width="1200"  /></td>
+</tr>
+
+<!-- INI BAGIAN MENU -->
+
+<tr>
+<td align="left" colspan="2" height="50" width="1200" bgcolor="#FFFAF0">
+	<nav>
+	<font color="red">
+		||&nbsp; 	
+			<a href="home.html">HOME</a> 							&nbsp;&nbsp;||&nbsp;&nbsp;
+			<a href="makeuplook.html">MAKEUP LOOK</a> 						&nbsp;&nbsp;||&nbsp;&nbsp;
+			<a href="pricelist.html">PRICELIST</a> 								&nbsp;&nbsp;||&nbsp;&nbsp;
+			<a href="ulasan.html">TENTANG KAMI</a> 			&nbsp;&nbsp;||&nbsp;&nbsp;
+			<a href="registrasi.html">REGISTRASI</a> 			&nbsp;&nbsp;||&nbsp;&nbsp;
+	</font>
+	</nav>
+</td>
+</tr>
+
+
+<!-- INI BAGIAN SIDEBAR MENU -->
+
+<tr valign="top">
+<td align="left" width="125" bgcolor="#FFE4E1">
+	<hr>
+	<input type="search" id="site-search" name="q"
+			aria-label="Search through site content">
+			<button>Cari Barang</button>
+<br>
+	<hr><hr>
+	<a href="belajarphp.php">
+	<img src="b.jpg" alt="Image" height="70" width="150"  />
+	</ul>
+<br>	
+	<hr><hr>
+	<img src="mua.jpg
+	" alt="Image" height="70" width="150"  />
+	<ul TYPE="SQUARE">
+	<li><img src="profile.png" alt="Image" height="15" width="15" /> <a href="biodata.html">Penjual </a><br/><br/>
+	<li><img src="maps.png" alt="Image" height="15" width="15" /> <a href="lokasi.html">Lokasi </a><br/><br/>
+	<li><img src="buku.png" alt="Image" height="15" width="15" /> <a href="bukutamu.php">Buku Tamu </a><br/><br/>
+	<li><img src="seller.png" alt="Image" height="15" width="15" /> <a href="form_input.html">Seller </a><br/><br/>
+	<li><img src="logo.jpg" alt="Image" height="15" width="15" /> <a href="form_inputdatadiri.html">Input Profile </a><br/><br/>
+	</ul>
+<br>	
+	<hr><hr>
+	<img src="kontak.jpg" alt="Image" height="70" width="150"  />
+	<ol type="1">
+	<li><img src="nikahan12.jpg" alt="Image" height="15" width="15" /> <a href="kamera.html">wedding</a><br/><br/>
+	<li><img src="nabila.jpg" alt="Image" height="15" width="15" /> <a href="lensa.html">photoshoot</a><br/><br/>
+	<li><img src="atta.jpg" alt="Image" height="15" width="15" /> <a href="lenshood.html">graduation</a><br/>
+	</ol>
+<br>
+	<hr><hr>
+	<a href="testimoni/testimoni.html">
+	<img src="testi.png" alt="Image" height="70" width="150"  />
+<br>
+	<hr><hr>
+	<a href="payment.html">
+	<img src="dana.webp" alt="Image" height="70" width="150"  /></a><br>
+	<img src="mb.jpg" alt="Image" height="40" width="150"  /><br>
+	<img src="shopeepay.png" alt="Image" height="80" width="150"  /><br>
+<br>	
+	<hr><hr>
+	<a><b>Social Media :</b></a><br>
+	<a href="https://www.facebook.com">	<!-- berikan url profil FB anda-->
+	<img src="fb.png" alt="Image" height="25" width="25" /></a> &nbsp;
+	<a href="https://www.instagram.com"> <!-- berikan url profil IG anda-->
+	<img src="ig.png" alt="Image" height="25" width="25" /></a> &nbsp;
+	<a href="https://www.twitter.com"> <!-- berikan url profil twitter anda-->
+	<img src="x.png" alt="Image" height="25" width="25" /></a> &nbsp;
+	<a href="https://wa.me/628xxxxxxxxxx"> <!-- 628xxxxxxxxxx ganti dengan nomor hp anda-->
+	<img src="wa.png" alt="Image" height="25" width="25" /></a> &nbsp;
+</td>
+
+
+
+<!-- INI BAGIAN HALAMAN KONTEN -->
+<td align="center" width="900" bgcolor="#FFF0F5">
+	<font size="+10">Halaman Beranda</font> <br>
+	<section class="row">
+    <div class="col-md-6 offset-md-3 align-self-center"> 
+      <h1 class="text-center">Data customer</h1>
+      <a href="tambah.php" class="btn btn-primary mb-2">Tambah</a>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">pricelist</th>
+            <th scope="col">Nama</th>
+            <th scope="col">kategorimakeup</th>
+            <th scope="col">makeuplook</th>
+            <th scope="col">contact</th>
+            <th scope="col">reserved</th>
+          </tr>
+        </thead>
+          <?php
+              // variable no digunakan untuk meng-increments field no pada table. Karena nanti kita akan melooping data hasil query select kita. 
+              $no = 1;
+              // Simpan query kita kedalam variable agar lebih rapi, dan bisa reusable.
+              // Arti dari query di bawah adalah pilih semua data dari table tb_siswa.
+              $query = "SELECT * FROM tb_siswa";
+              // Eksekusi Query
+              // Simpan hasil eksekusi query kita ke dalam variable. Di sini variable nya saya kasih nama result.
+              $result = mysqli_query($koneksi, $query);
+              // Done. Waktunya Looping
+          ?>
+		  <tbody>
+          <?php
+            foreach ($result as $data){
+              echo "
+                <tr>
+                  <th scope='row'>". $no++ ."</th>
+                  <td>". $data["pricelist"] ."</td>
+                  <td>". $data["nama"] ."</td>
+                  <td>". $data["kategorimakeup"] ."</td>
+                  <td>". $data["makeuplook"] ."</td>
+                  <td>". $data["contact"] ."</td>
+                  <td>". $data["reserved"] ."</td>
+                  <td> 
+                    <a href='update.php?id=".$data["id"]."' type='button' class='btn btn-success'>Update</a>
+                    <a href='delete.php?id=".$data["id"]."' type='button' class='btn btn-danger' onlick='return confirm('Yakin ingin menghapus data?')'>Delete</a>
+                  </td>
+                </tr>  
+              ";
+            }
+          ?>
+        </tbody>  
+      </table>
+    </div>
+  </section>
+	
+	
+	
+</td>
+
+<!-- INI BAGIAN FOOTER -->
+<tr>
+<td colspan="2" bgcolor="#FFFAF0"><center>
+<img src="logo.jpg" alt="Image" height="30" width="30" /> 
+<font color="brown">Copyright &copy; 2021 &nbsp; ||&nbsp; NIM : B12.2022.04717&nbsp; ||&nbsp;NAMA : Yunanda Ayu&nbsp; ||&nbsp;YUNANDA.MAKEUP</font>
+<img src="logo.jpg" alt="Image" height="30" width="30" /> 
+</center>
+</td>
+</tr>
+
+</tr>
+</table>
+</body>
+</html>
